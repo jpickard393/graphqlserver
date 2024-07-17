@@ -12,11 +12,15 @@ const resolvers = {
         authors() {return db.authors},
         review(_,args){ 
             return db.reviews.find((review) => review.id === args.id)
-        }
+        },
+        categories() {return db.categories}
     },
     Game: {
         reviews(parent) {
             return db.reviews.filter((r) => r.game_id === parent.id)
+        },
+        category(parent) {
+            return db.categories.find((c) => c.id === parent.category_id)
         }
     },
     Author: {
@@ -32,6 +36,8 @@ const resolvers = {
             return db.games.find((g) => g.id === parent.game_id)
         }
     },
+    
+   
 };
 
 const server = new ApolloServer({
