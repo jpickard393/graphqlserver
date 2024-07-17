@@ -29,7 +29,7 @@ export const typeDefs = `#graphql
         games:[Game]
         game(id: ID!): Game
         authors:[Author]
-        author:(id: ID!): Author
+        author(id: ID!): Author
     }
 `
 
