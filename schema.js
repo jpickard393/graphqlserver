@@ -39,6 +39,15 @@ export const typeDefs = `#graphql
         id: ID!
         name: String
     }
+    type Mutation {
+        deleteGame(id:ID!):[Game]
+        addGame(game: AddGameInput!):Game
+    }
+    input AddGameInput {
+        title: String
+        platform: [String!]!
+        }
+    
 `
 
 // Built in types in grapgQL
